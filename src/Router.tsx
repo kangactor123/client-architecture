@@ -1,34 +1,27 @@
-import App from './App';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 import Login from '@pages/login';
 import Home from '@pages/home';
+import Layout from '@components/Layout/Layout';
 
-// const Home = lazy(() => import('@pages/home'));
+export type CustomRouteObject = {
+  children?: CustomRouteObject[];
+  label?: string;
+  hidden?: boolean;
+} & RouteObject;
 
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <Route path="/" element={<App />}>
-//       <Route index={true} path="home" element={<Home />} />
-//     </Route>,
-//   ),
-// );
-
-const router = createBrowserRouter([
+const routes: CustomRouteObject[] = [
   {
     path: '/',
-    element: <App />,
+    element: <Layout />,
     children: [
+      { index: true, element: <Home /> },
       {
-        index: true,
-        path: 'home',
-        element: <Home />,
-      },
-      {
-        path: 'login',
+        path: '/login',
         element: <Login />,
+        children: [],
       },
+      // { path: '*', element: <NoMatch /> },
     ],
   },
-]);
-
-export default router;
+];
+export default routes;

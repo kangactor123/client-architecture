@@ -1,6 +1,6 @@
-import { Outlet, RouteObject, useLocation, useNavigate } from 'react-router';
 import styled from '@emotion/styled';
-import { useEffect } from 'react';
+import routes from './Router';
+import { useRoutes } from 'react-router';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,38 +10,15 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export type CustomRouteObject = {
-  children?: CustomRouteObject[];
-  label?: string;
-  hidden?: boolean;
-} & RouteObject;
-
-const menu: CustomRouteObject[] = [
-  //   {
-  //     path: '/',
-  //     element: <div>hi route</div>,
-  //     children: [{ index: true, element: <Navigate to="sample" replace /> }],
-  //   },
-  //   {
-  //     path: '*',
-  //     element: <Navigate to="/not-found" replace />,
-  //   },
-];
-
 function App() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const element = useRoutes(routes);
 
   // 토큰 없으면 로그인으로 라우팅
   // useEffect(() => {
   //   navigate('/login');
   // }, [location.pathname]);
 
-  return (
-    <Wrapper>
-      <Outlet />
-    </Wrapper>
-  );
+  return <Wrapper>{element}</Wrapper>;
 }
 
 export default App;
