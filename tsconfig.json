@@ -27,8 +27,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@core/*": ["src/core/*"],
-      "@module/*": ["src/module/*"],
-      "@page/*": ["src/page/*"],
+      "@modules/*": ["src/modules/*"],
+      "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@/*": ["src/*"]
     }

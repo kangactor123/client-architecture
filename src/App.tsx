@@ -1,5 +1,6 @@
-import { RouteObject } from 'react-router';
+import { Outlet, RouteObject, useLocation, useNavigate } from 'react-router';
 import styled from '@emotion/styled';
+import { useEffect } from 'react';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,7 +29,19 @@ const menu: CustomRouteObject[] = [
 ];
 
 function App() {
-  return <Wrapper>hi</Wrapper>;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // 토큰 없으면 로그인으로 라우팅
+  // useEffect(() => {
+  //   navigate('/login');
+  // }, [location.pathname]);
+
+  return (
+    <Wrapper>
+      <Outlet />
+    </Wrapper>
+  );
 }
 
 export default App;

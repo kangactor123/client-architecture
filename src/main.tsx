@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import GlobalStyle from '@core/styles/global.tsx';
-import { Route, RouterProvider, createRoutesFromElements } from 'react-router';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router';
 
-import App from './App';
+import router from './Router';
 
 //react-query default option 설정
 const queryClient = new QueryClient({
@@ -14,14 +13,6 @@ const queryClient = new QueryClient({
     queries: {},
   },
 });
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      {/* <Route path="/" element={<></>} /> */}
-    </Route>,
-  ),
-);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
