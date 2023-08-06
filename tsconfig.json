@@ -30,6 +30,7 @@
       "@modules/*": ["src/modules/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
+      "@recoil/*": ["src/recoil/*"],
       "@/*": ["src/*"]
     }
   },

@@ -19,6 +19,7 @@ export default defineConfig({
       { find: '@module', replacement: '/src/modules' },
       { find: '@pages', replacement: '/src/pages' },
       { find: '@assets', replacement: '/src/assets' },
+      { find: '@recoil', replacement: '/src/recoil' },
       { find: '@', replacement: '/src' },
     ],
   },
